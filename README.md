@@ -24,11 +24,8 @@ Allele Specific Expression method and pipeline for analysis
 		VCFmergeGTF3
 
 	/ASEofBases/R_scripts/
-		1_analysis.R
-		2_individual.R
-		3_population.R
+		ASEofBasesAnalysis.R
 		simAoB.R
-		simpop.R
 	
 # ASEofBases README
 # 1. Prepare directories and files 
