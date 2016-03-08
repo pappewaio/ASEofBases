@@ -5,11 +5,11 @@ Allele Specific Expression method and pipeline for analysis
 # OverView
 ---Publicly available programs-------------------------
 
-		angsd0.563			https://github.com/ANGSD/angsd
-		vcftools_0.1.12a		http://sourceforge.net/projects/vcftools/files/
-		zlib-1.2.8			http://www.zlib.net	
-		samtools/htslib			https://github.com/samtools/htslib
-		bigwig				https://genome.ucsc.edu/goldenPath/help/bigWig.html
+		angsd0.563				https://github.com/ANGSD/angsd
+		vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
+		zlib-1.2.8				http://www.zlib.net	
+		samtools/htslib				https://github.com/samtools/htslib
+		bigwig					https://genome.ucsc.edu/goldenPath/help/bigWig.html
 
 ---In house programs-------------------------
 
