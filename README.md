@@ -35,7 +35,6 @@ make directories
 		mkdir /ASEofBases
 		mkdir /ASEofBases/1_code			        # bash scripts
 		mkdir /ASEofBases/2_prog 			        # locally written C++ programs
-		mkdir /ASEofBases/2_prog/R_scripts 	  		# locally written R programs
 		mkdir /ASEofBases/3_raw  		         	# raw and parsed data
 		mkdir /ASEofBases/4_data 			        # parsed RNAseq data for filtering & analysis in R
 		mkdir /ASEofBases/5_out  			        # analysis and output from simulations made in R
