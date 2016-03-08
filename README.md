@@ -122,8 +122,10 @@ For all Individuals, chromosomes, and population:
 
 # 6. Run regression analysis and make plots in R
 For simulations
+
 		simAoB.R
 For regression analysis using data generated in pervious steps
+
 		ASEofBases.R
 
 
