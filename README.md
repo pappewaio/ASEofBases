@@ -123,6 +123,9 @@ For all Individuals, chromosomes, and population:
 For simulations
 
 		simAoB.R
+
+![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/edit/master/simulations.png)	
+
 For regression analysis using data generated in pervious steps
 
 		ASEofBases.R
