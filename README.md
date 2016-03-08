@@ -120,15 +120,15 @@ For all Individuals, chromosomes, and population:
 		nT: counts of Ts
 
 # 6. Run regression analysis and make plots in R
+For regression analysis using data generated in pervious steps
+
+		ASEofBases.R
+
 For simulations
 
 		simAoB.R
 
 ![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
-
-For regression analysis using data generated in pervious steps
-
-		ASEofBases.R
 
 
 
