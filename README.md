@@ -124,7 +124,7 @@ For simulations
 
 		simAoB.R
 
-![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/edit/master/simulations.png)	
+![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
 
 For regression analysis using data generated in pervious steps
 
