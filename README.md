@@ -26,22 +26,24 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 		unzip ASEofBases-master.zip && cd ASEofBases-master
 		export PATH=`pwd`/bin:$PATH
 
-Directory overview of ASEofBases 
+Directory overview of ASEofBases:
 
 /ASEofBases/bash_scripts/
-	1_get.sh
-	2_run.sh
-	3_makeData.sh
+- 1_get.sh
+- 2_run.sh
+- 3_makeData.sh
+
 /ASEofBases/programs/
-	getliners
-	ieatgor
-	VCFmergeGTF3
+- getliners
+- ieatgor
+- VCFmergeGTF3
 
 /ASEofBases/R_scripts/
-	ASEofBasesAnalysis.R
-	simAoB.R
+- ASEofBasesAnalysis.R
+- simAoB.R
 
-You will also need the following perviosuly published programs installed 
+You will also need the following perviosuly published programs installed:
+
 - angsd0.563				https://github.com/ANGSD/angsd
 - vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
 - zlib-1.2.8				http://www.zlib.net	
