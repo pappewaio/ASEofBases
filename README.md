@@ -59,9 +59,11 @@ You will also need the following perviosuly published programs installed:
 
 
 # ASEofBases README
-## 1. Compile programs/code to be executable
+### Step 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
+
 ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry in tmp.data that has chromosome and position within the regions and specified in the "targetfile" (regions of the genome that are "callable")
+
 VCFmergeGTF - This code is merging the genotype calls (from vcf) with position of protein coding genes (from gencode)
 
 		cd /ASEofBases/2_prog/
@@ -69,14 +71,13 @@ VCFmergeGTF - This code is merging the genotype calls (from vcf) with position o
 		g++ -O3 -o ieatgor ieatgorV2.cpp -lZ
 		g++ -O3 -o getliners getliners.cpp -lz
 
-## 2. Program check
+### Step 2. Program check
 Make sure each of these programs are installed
-
-	angsd0.563			          https://github.com/ANGSD/angsd
-	vcftools_0.1.12a	                  http://sourceforge.net/projects/vcftools/files/
-	zlib-1.2.8			          http://www.zlib.net	
-	samtools/htslib		                  https://github.com/samtools/htslib
-	bigwig				          https://genome.ucsc.edu/goldenPath/help/bigWig.html
+- angsd0.563 (https://github.com/ANGSD/angsd)
+- vcftools_0.1.12a ( http://sourceforge.net/projects/vcftools/files/)
+- zlib-1.2.8 ( http://www.zlib.net)
+- samtools/htslib (https://github.com/samtools/htslib)
+- bigwig (https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 
 ## 3. Download Mapability file, 
 **** includes some point and clicking *****
