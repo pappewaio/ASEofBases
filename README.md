@@ -27,16 +27,18 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 		export PATH=`pwd`/bin:$PATH
 
 Directory overview of ASEofBases:
-/ASEofBases/1_code/	# bash scripts
+/ASEofBases/1_code/	- bash scripts
 - 1_get.sh
 - 2_run.sh
 - 3_makeData.sh
 - ASEofBasesAnalysis.R
 - simAoB.R
-/ASEofBases/2_prog/	# locally written C++ programs
+
+/ASEofBases/2_prog/	- locally written C++ programs
 - getliners
 - ieatgor
 - VCFmergeGTF3
+- 
 /ASEofBases/3_raw/	# raw and parsed data
 /ASEofBases/4_data/	# parsed RNAseq data for filtering & analysis in R
 /ASEofBases/5_out/	# analysis and output made in R
