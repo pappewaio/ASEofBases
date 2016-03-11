@@ -28,19 +28,19 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 
 Directory overview of ASEofBases:
 
-/ASEofBases/bash_scripts/
-- 1_get.sh
-- 2_run.sh
-- 3_makeData.sh
+/ASEofBases/1_code/
+--1_get.sh
+-- 2_run.sh
+-- 3_makeData.sh
+--ASEofBasesAnalysis.R
+-- simAoB.R
 
-/ASEofBases/programs/
+/ASEofBases/2_prog/
 - getliners
 - ieatgor
 - VCFmergeGTF3
 
-/ASEofBases/R_scripts/
-- ASEofBasesAnalysis.R
-- simAoB.R
+
 
 You will also need the following perviosuly published programs installed:
 
