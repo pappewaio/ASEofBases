@@ -26,31 +26,27 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 		unzip ASEofBases-master.zip && cd ASEofBases-master
 		export PATH=`pwd`/bin:$PATH
 
----Scripts for running ASEofBases-------------------------
+Directory overview of ASEofBases 
 
-	/ASEofBases/bash_scripts/
-		1_get.sh
-		2_run.sh
-		3_makeData.sh
+/ASEofBases/bash_scripts/
+	1_get.sh
+	2_run.sh
+	3_makeData.sh
+/ASEofBases/programs/
+	getliners
+	ieatgor
+	VCFmergeGTF3
 
-	/ASEofBases/programs/
-		getliners
-		ieatgor
-		VCFmergeGTF3
-
-	/ASEofBases/R_scripts/
-		ASEofBasesAnalysis.R
-		simAoB.R
+/ASEofBases/R_scripts/
+	ASEofBasesAnalysis.R
+	simAoB.R
 
 You will also need the following perviosuly published programs installed 
-
----Perviously published programs-------------------------
-
-		angsd0.563				https://github.com/ANGSD/angsd
-		vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
-		zlib-1.2.8				http://www.zlib.net	
-		samtools/htslib				https://github.com/samtools/htslib
-		bigwig					https://genome.ucsc.edu/goldenPath/help/bigWig.html
+- angsd0.563				https://github.com/ANGSD/angsd
+- vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
+- zlib-1.2.8				http://www.zlib.net	
+- samtools/htslib			https://github.com/samtools/htslib
+- bigwig				https://genome.ucsc.edu/goldenPath/help/bigWig.html
 
 	
 # ASEofBases README
