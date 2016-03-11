@@ -26,7 +26,16 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 		unzip ASEofBases-master.zip && cd ASEofBases-master
 		export PATH=`pwd`/bin:$PATH
 
-Directory overview of ASEofBases:
+You will also need the following perviosuly published programs installed:
+
+- angsd0.563				https://github.com/ANGSD/angsd
+- vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
+- zlib-1.2.8				http://www.zlib.net	
+- samtools/htslib			https://github.com/samtools/htslib
+- bigwig				https://genome.ucsc.edu/goldenPath/help/bigWig.html
+
+
+## Directory overview of ASEofBases:
 
 /ASEofBases/1_code/	# bash scripts
 - 1_get.sh
@@ -41,26 +50,15 @@ Directory overview of ASEofBases:
 - VCFmergeGTF3
  
 /ASEofBases/3_raw/	# raw and parsed data
+
 /ASEofBases/4_data/	# parsed RNAseq data for filtering & analysis in R
+
 /ASEofBases/5_out/	# analysis and output made in R
+
 /ASEofBases/6_plot/	# plots made from the output data made in R 
 
-You will also need the following perviosuly published programs installed:
 
-- angsd0.563				https://github.com/ANGSD/angsd
-- vcftools_0.1.12b			http://sourceforge.net/projects/vcftools/files/
-- zlib-1.2.8				http://www.zlib.net	
-- samtools/htslib			https://github.com/samtools/htslib
-- bigwig				https://genome.ucsc.edu/goldenPath/help/bigWig.html
-
-	
 # ASEofBases README
-This set of bash commands downloads initial data and does some processing 
-- Convert Mapability file to bed format and create file to filter on mapability
-- Get protein coding gene annotations
-- Download & parse variation and genotype information from 1000Genomes individuals
-- Download & parse individual information from Geuvadis RNAseq data
-
 ## 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
 ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry in tmp.data that has chromosome and position within the regions and specified in the "targetfile" (regions of the genome that are "callable")
