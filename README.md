@@ -28,19 +28,25 @@ Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/A
 
 Directory overview of ASEofBases:
 
-/ASEofBases/1_code/
---1_get.sh
--- 2_run.sh
--- 3_makeData.sh
---ASEofBasesAnalysis.R
--- simAoB.R
+/ASEofBases/1_code/	# bash scripts
+- 1_get.sh
+- 2_run.sh
+- 3_makeData.sh
+- ASEofBasesAnalysis.R
+- simAoB.R
 
-/ASEofBases/2_prog/
+/ASEofBases/2_prog/	# locally written C++ programs
 - getliners
 - ieatgor
 - VCFmergeGTF3
 
+/ASEofBases/3_raw/	# raw and parsed data
 
+/ASEofBases/4_data/	# parsed RNAseq data for filtering & analysis in R
+
+/ASEofBases/5_out/	# analysis and output from simulations made in R
+
+/ASEofBases/6_plot/	# plots made from the output data made in R 
 
 You will also need the following perviosuly published programs installed:
 
@@ -53,31 +59,12 @@ You will also need the following perviosuly published programs installed:
 	
 # ASEofBases README
 This set of bash commands downloads initial data and does some processing 
+- Convert Mapability file to bed format and create file to filter on mapability
+- Get protein coding gene annotations
+- Download & parse variation and genotype information from 1000Genomes individuals
+- Download & parse individual information from Geuvadis RNAseq data
 
-		1. Convert Mapability file to bed format and create file to filter on mapability
-		2. Get protein coding gene annotations
-		3. Download & parse variation and genotype information from 1000Genomes individuals
-		4. Download & parse individual information from Geuvadis RNAseq data
-
-## 1. Make directories and compile programs
-
-		cd 				# move to home directory or location you would like to run the analysis
-		mkdir /ASEofBases
-		mkdir /ASEofBases/1_code			        # bash scripts
-		mkdir /ASEofBases/2_prog 			        # locally written C++ programs
-		mkdir /ASEofBases/3_raw  		         	# raw and parsed data
-		mkdir /ASEofBases/4_data 			        # parsed RNAseq data for filtering & analysis in R
-		mkdir /ASEofBases/5_out  			        # analysis and output from simulations made in R
-		mkdir /ASEofBases/6_plot 			        # plots made from the output data made in R 
-
-move scripts and programs to appropriate locations
-
-		mv ASEofBases_codes/bash_scripts/* ASEofBases/1_code/
-		mv ASEofBases_codes/programs/* ASEofBases/2_prog/
-		mv ASEofBases_codes/R_scripts/* ASEofBases/2_prog/R_scripts/
-
-compile programs/code to be executable
-
+## 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
 ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry in tmp.data that has chromosome and position within the regions and specified in the "targetfile" (regions of the genome that are "callable")
 VCFmergeGTF - This code is merging the genotype calls (from vcf) with position of protein coding genes (from gencode)
