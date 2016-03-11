@@ -116,7 +116,7 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 
 ### 3. Download Mapability file for uniqueness of the reference genome from Encode 
 **** includes some point and clicking *****
-The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. They were generated using different window sizes, and high signal will be found in areas where the sequence is unique.
+The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. Mapability files were generated using different window sizes, high signal will be found in areas where the sequence is unique.
 
 Download the Mapability file:
 - http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
@@ -124,8 +124,13 @@ Download the Mapability file:
 		cd ASEofBases/2_prog/BigWig/
 		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
-## 4. Get raw data and conduct initial parsing
-1_getRaw.sh is a bash script for ..... 
+### 4. Get raw data and conduct initial parsing
+1_getRaw.sh is a bash script for downloading initial data and does some processing. 
+- `1_getRaw.sh' Overview`:
+	1. Convert Mapability file to bed format and create file to filter on mapability
+	2. Get protein coding gene annotations
+	3. Download & parse individual information from `1000Genomes` individuals
+	4. Download & parse individual information from `Geuvadis` RNAseq data
 
     sh /ASEofBases/bash_scripts/1_getRaw.sh
 
