@@ -1,10 +1,10 @@
 # ASEofBases
-Allele Specific Expression method and pipeline for analysis. 
-
 Biased allele expression, refers to the imbalanced expression of the two alleles in a diploid genome. Unequal transcription of alleles may occur due to cis-regulatory element variation or allele-specific epigenetic modifications.  Allelic imbalance may be incorrectly inferred due to technical variation inherent in RNA-Seq data, including read depth, reference mapping bias, and the overdispersion of reads. To correct for technical variation we develop a logistic regression model with a mixed effects approach to combine information regarding biased allele expression from many individuals in a population, and across multiple genes. Here we describe a new method for inferring allelic imbalance that combines information from multiple SNP sites within a transcribed unit, using a logistic regression model that explicitly models the effects of reference bias and SNP type biases. Additionally, by using a mixed effects approach the method also makes it possible to combine information from many individuals in a population for each gene and to test hypothesis regarding allelic imbalance in specific genes within and across populations. 
 
 
 # OverView
+Overview of the nessacry programs and scripts needed to run through the ASEofBases pipeline. 
+
 ---Perviously published programs-------------------------
 
 		angsd0.563				https://github.com/ANGSD/angsd
@@ -31,6 +31,7 @@ Biased allele expression, refers to the imbalanced expression of the two alleles
 	
 # ASEofBases README
 This set of bash commands downloads initial data and does some processing 
+
 		1. Convert Mapability file to bed format and create file to filter on mapability
 		2. Get protein coding gene annotations
 		3. Download & parse variation and genotype information from 1000Genomes individuals
@@ -55,18 +56,9 @@ move scripts and programs to appropriate locations
 
 compile programs/code to be executable
 
-Getliners
-	Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual)
-	greps the set of keys in tmp.keys in column 2 of the file tmp.het
-
-ieatgor
- 	Filter for alignability output chr$chr.ind$ind.data
-	greps any entry in tmp.data that has chromosome and position within the regions 
-	specified in the "targetfile" (regions of the genome that are "callable")
-	
-VCFmergeGTF
-	This code is merging the genotype calls (from vcf) with position of 
-	protein coding genes (from gencode)
+Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
+ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry in tmp.data that has chromosome and position within the regions and specified in the "targetfile" (regions of the genome that are "callable")
+VCFmergeGTF - This code is merging the genotype calls (from vcf) with position of protein coding genes (from gencode)
 
 		cd /ASEofBases/2_prog/
 		g++ -O3 -o VCFmergeGTF3 VCFmergeGTF3.cpp -lz
@@ -95,6 +87,7 @@ Download the Mapability file:
 
 # 4. Get raw data and conduct initial parsing
 1_getRaw.sh is a bash script for ..... 
+
     sh /ASEofBases/bash_scripts/1_getRaw.sh
 
 
