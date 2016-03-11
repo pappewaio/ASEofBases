@@ -108,17 +108,21 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 		tar -xzvf samtools-1.3.tar.bz2
 		rm samtools-1.3.tar.bz2
 		
+		#BigWig
+		mkdir BigWig
+		cd BigWig
+		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/macOSX.x86_64/ ./
 
-## 3. Download Mapability file, 
+
+### 3. Download Mapability file for uniqueness of the reference genome from Encode 
 **** includes some point and clicking *****
-The mapability file is used for ...........
+The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. They were generated using different window sizes, and high signal will be found in areas where the sequence is unique.
 
 Download the Mapability file:
-	http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
-  	wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
-
-    	mkdir ASEofBases/2_prog/BigWig/
-    	mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
+- http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
+- wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
+		cd ASEofBases/2_prog/BigWig/
+		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
 ## 4. Get raw data and conduct initial parsing
 1_getRaw.sh is a bash script for ..... 
