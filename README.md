@@ -87,18 +87,22 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 - samtools/htslib (https://github.com/samtools/htslib)
 - bigwig (https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 
+
 		# angsd
 		git clone https://github.com/angsd/angsd.git
 		cd angsd
 		make
+		
 		# vcftoolss_0.1.12b
 		wget https://sourceforge.net/projects/vcftools/files/vcftools_0.1.12b.tar.gz
 		tar -xzvf file.tar.gz
 		rm vcftools_0.1.12b.tar.gz
+		
 		# zlib
 		wget http://zlib.net/zlib-1.2.8.tar.gz
 		tar -xzvf zlib-1.2.8.tar.gz
 		rm zlib-1.2.8.tar.gz
+		
 		# samtools 
 		wget https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2 
 		tar -xzvf samtools-1.3.tar.bz2
