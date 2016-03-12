@@ -1,9 +1,9 @@
 # ASEofBases: Allele Specific Expression method and pipeline for analysis
 
-### What is ASEofBases?
+#### What is ASEofBases?
 Biased allele expression, refers to the imbalanced expression of the two alleles in a diploid genome. Unequal transcription of alleles may occur due to cis-regulatory element variation or allele-specific epigenetic modifications.  Allelic imbalance may be incorrectly inferred due to technical variation inherent in RNA-Seq data, including read depth, reference mapping bias, and the overdispersion of reads. To correct for technical variation we develop a logistic regression model with a mixed effects approach to combine information regarding biased allele expression from many individuals in a population, and across multiple genes. Here we describe a new method for inferring allelic imbalance that combines information from multiple SNP sites within a transcribed unit, using a logistic regression model that explicitly models the effects of reference bias and SNP type biases. Additionally, by using a mixed effects approach the method also makes it possible to combine information from many individuals in a population for each gene and to test hypothesis regarding allelic imbalance in specific genes within and across populations. 
 
-### Citing ASEofBases
+#### Citing ASEofBases
 If you use ASEofBases package, please cite:
 
 - Inference on imbalanced allelic expression from RNA sequencing data in individuals and across groups using logistic regression models. Skotte L, Olney K, Nielsen R, and Wilson Sayres M. (https://dx.doi.org/10.6084/m9.figshare.1564499.v1) Manuscript in preparation
@@ -13,13 +13,13 @@ If you use the `1000Genomes` or `Geuvidas` data sets, please also cite:
 -  A global reference for human genetic variation, The 1000 Genomes Project Consortium, Nature 526, 68-74 (01 October 2015) doi: [10.1038/nature15393](http://www.1000genomes.org/home).
 - Lappalainen et al. Nature 2013 : Transcriptome and genome sequencing uncovers functional variation in humans (http://dx.doi.org/10.1038/nature12531).
 
-### Key features
+#### Key features
 - simulations for modeling statistcal power for various read depth and various number of SNPs per gene 
 - simulations for modeling SNP-wise binomial, binomial-based logistic regression, and binomial-based logistic regression correcting for the over dispersion of read counts. 
 - model of allele-specific expression in single individuals  
 - model of allele-specific expression in a population 
 
-### Installation
+#### Installation
 Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/ASEofBases/archive/master.zip), unzip and add the `bin` directory to your `PATH`. E.g.:
 
 		wget -O ASEofBases-master.zip https://github.com/WilsonSayresLab/ASEofBases/archive/master.zip
@@ -35,7 +35,7 @@ You will also need the following perviosuly published programs installed:
 - bigwig				https://genome.ucsc.edu/goldenPath/help/bigWig.html
 
 
-### Directory overview of ASEofBases:
+#### Directory overview of ASEofBases:
 
 /ASEofBases/1_code/	# bash scripts
 - 1_get.sh
@@ -121,19 +121,28 @@ The mapability file is used for identifing uniqueness of the reference GRCh37/hg
 Download the Mapability file:
 - http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
 - wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
+
 		cd ASEofBases/2_prog/BigWig/
 		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
 ### 4. Get raw data and conduct initial parsing
 1_getRaw.sh is a bash script for downloading initial data and does some processing. 
-- `1_getRaw.sh' Overview`:
+- `1_getRaw.sh' Overview:
 	1. Convert Mapability file to bed format and create file to filter on mapability
 	2. Get protein coding gene annotations
-	3. Download & parse individual information from `1000Genomes` individuals
-	4. Download & parse individual information from `Geuvadis` RNAseq data
+	3. Download & parse individual genotype information from `1000Genomes` individuals
+	4. Download & parse individual information RNAseq data from `Geuvadis` 
+	
+- TIMING for human chromosome 13 ~ 1 HOUR 
 
-    sh /ASEofBases/bash_scripts/1_getRaw.sh
+		sh /ASEofBases/bash_scripts/1_getRaw.sh
 
+- Outputs:
+	1. **chr#.50mer.target**
+	2. **gencode.chr#.gore**
+	3. **gencode.protien_coding.genes.v19.gtf**
+	4. **chr#.genotypes.vcf**
+	5. **individualID_list**
 
 ## 5. Parse and merge genotype and transcriptome data
 This bash script will call another script and together will conduct filtering and parsing of the genotype and RNAseq data.
