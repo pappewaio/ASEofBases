@@ -65,7 +65,7 @@ You will also need the following perviosuly published programs installed:
 /ASEofBases/6_plot/	# plots made from the output data made in R 
 - plots in pdf format
 
-# ASEofBases pipeline for generated data 
+# ASEofBases pipeline for human chromosome 13 sample data set
 ### Step 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
 
