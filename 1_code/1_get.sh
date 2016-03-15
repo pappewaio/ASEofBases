@@ -11,8 +11,8 @@
 #############
 
 # Define directories
-progdir=/home/user/ASEofBases/2_prog
-rawdir=/home/user/ASEofBases/3_raw
+progdir=/Users/olneykimberly/Desktop/ASEofBases/2_prog
+rawdir=/Users/olneykimberly/Desktop//ASEofBases/3_raw
 
 #############
 ## 1. Convert Mapability file to bed format and create file to filter on mapability
@@ -27,10 +27,12 @@ rawdir=/home/user/ASEofBases/3_raw
 cd $progdir/BigWig/
 
 # convert bigwig to bed format:
-bigWigToBedGraph wgEncodeCrgMapabilityAlign50mer.bigWig wgEncodeCrgMapabilityAlign50mer.bed
+$progdir/BigWig/bigWigToBedGraph wgEncodeCrgMapabilityAlign50mer.bigWig wgEncodeCrgMapabilityAlign50mer.bed
 
 # parse bed file to target file:
-egrep "\s1$" wgEncodeCrgMapabilityAlign50mer.bed | sed 's/\t/:/' | sed 's/\t/-/' | cut -f1 > wgEncodeCrgMapabilityAlign50mer.target
+# Depending on the the system used you may need to change sed 's/\t/:/' to sed 's/	/:/'
+#egrep "\s1$" wgEncodeCrgMapabilityAlign50mer.bed | sed 's/\t/:/' | sed 's/\t/-/' | cut -f1 > wgEncodeCrgMapabilityAlign50mer.target
+egrep "\s1$" wgEncodeCrgMapabilityAlign50mer.bed | sed 's/	/:/' | sed 's/	/-/' | cut -f1 > wgEncodeCrgMapabilityAlign50mer.target
 mv wgEncodeCrgMapabilityAlign50mer.target $rawdir
 
 # parse target file to individual chromosome files
@@ -38,7 +40,7 @@ TRGTfile=$rawdir/wgEncodeCrgMapabilityAlign50mer.target
 for chr in {1..22}
 do
 pattern="^chr$chr:"
-grep -P $pattern $TRGTfile > $rawdir/chr$chr.50mer.target
+egrep -e $pattern $TRGTfile > $rawdir/chr$chr.50mer.target
 wc -l $rawdir/chr$chr.50mer.target
 done
 
@@ -62,7 +64,7 @@ zcat $rawdir/gencode.v19.annotation.gtf.gz | awk '{if($3=="gene" && $20=="\"prot
 for chr in {1..22}
 do
 pattern="^chr$chr\t"
-grep -P $pattern $rawdir/gencode.protein_coding.genes.v19.gtf | sort -n -k4 -k5 | cut -f1,4,5,9 > $rawdir/gencode.chr$chr.gore
+egrep -e $pattern $rawdir/gencode.protein_coding.genes.v19.gtf | sort -n -k4 -k5 | cut -f1,4,5,9 > $rawdir/gencode.chr$chr.gore
 done
 
 #############
@@ -72,6 +74,7 @@ done
 # Download full 1000 genomes individuals list
 wget ftp://ftp-trace.ncbi.nlm.nih.gov/1000genomes/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
 
+
 # Make sure 1000 genomes sample list is in the raw data directory
 mv integrated_call_samples_v3.20130502.ALL.panel $rawdir/kg.integrated_call_samples_v3.20130502.ALL.panel
 
@@ -79,11 +82,11 @@ mv integrated_call_samples_v3.20130502.ALL.panel $rawdir/kg.integrated_call_samp
 cut -f1 $rawdir/kg.integrated_call_samples_v3.20130502.ALL.panel > $rawdir/kg.inds
 
 # For each chromosome, download the 1000 genomes genotype file
-for chr in {1..22}
-do
-pattern="^chr$chr\t"
-wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr$chr.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
-mv ALL.chr$chr.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz $rawdir/kg.ALL.chr$chr.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
+#for chr in {1..22}
+#do
+#pattern="^chr$chr\t"
+wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr13.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
+mv ALL.chr13.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz $rawdir/kg.ALL.chr13.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
 done
 
 #############
