@@ -131,7 +131,9 @@ Download the Mapability file:
 	3. Download & parse individual genotype information from `1000Genomes` individuals
 	4. Download & parse individual information RNAseq data from `Geuvadis`
 
+
 		sh /ASEofBases/bash_scripts/1_getRaw.sh
+
 
 - Outputs:
 	1. **chr#.50mer.target** - target file to individual chromosome files. Example: chr1:10207-10212
