@@ -65,13 +65,6 @@ You will also need the following perviosuly published programs installed:
 /ASEofBases/6_plot/	# plots made from the output data made in R 
 - plots in pdf format
 
-# ASEofBases pipeline for simulated data 
-For simulations
-
-		simAoB.R
-
-![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
-
 # ASEofBases pipeline for generated data 
 ### Step 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
@@ -172,3 +165,10 @@ This bash script will call another script and together will conduct filtering an
 For regression analysis using data generated in pervious steps
 
 		ASEofBases.R
+
+# ASEofBases pipeline for simulated data 
+For simulations
+
+		simAoB.R
+
+![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
