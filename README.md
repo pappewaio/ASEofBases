@@ -127,13 +127,11 @@ Download the Mapability file:
 
 ### 4. Get raw data and conduct initial parsing
 1_getRaw.sh is a bash script for downloading initial data and does some processing. 
-- `1_getRaw.sh' Overview:
+- '1_getRaw.sh' Overview:
 	1. Convert Mapability file to bed format and create file to filter on mapability
 	2. Get protein coding gene annotations
 	3. Download & parse individual genotype information from `1000Genomes` individuals
 	4. Download & parse individual information RNAseq data from `Geuvadis` 
-	
-- TIMING for human chromosome 13 ~ 1 HOUR 
 
 		sh /ASEofBases/bash_scripts/1_getRaw.sh
 
@@ -142,20 +140,20 @@ Download the Mapability file:
 	2. **gencode.chr#.gore**
 	3. **gencode.protien_coding.genes.v19.gtf**
 	4. **chr#.genotypes.vcf**
-	5. **individualID_list**
+	5. **individual_ID_list**
 
 ## 5. Parse and merge genotype and transcriptome data
 This bash script will call another script and together will conduct filtering and parsing of the genotype and RNAseq data.
+
 		sh /ASEofBases/1_code/2_run.sh # this program runs 3_makeData.sh
 
-This set of bash commands downloads initial data and does some processing 
-For all Individuals, chromosomes, and population:
 
 
- 	ANGSD 
+
+ - ANGSD 
 		Use ANGSD to get counts, mapq filter 40, remove duplicates from BAM files 
 
-
+- Output:
 	Output of data parsing and filtering
 	The output of this step will result in a file for each individual with these columns:
 		chr: chromosome 
