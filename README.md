@@ -65,8 +65,14 @@ You will also need the following perviosuly published programs installed:
 /ASEofBases/6_plot/	# plots made from the output data made in R 
 - plots in pdf format
 
+# ASEofBases pipeline for simulated data 
+For simulations
 
-# ASEofBases pipeline
+		simAoB.R
+
+![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
+
+# ASEofBases pipeline for generated data 
 ### Step 1. Compile programs/code to be executable
 Getliners - Merge the tmp.keys (positions) with tmp.het (heterozygous protein coding SNPs for individual) and greps the set of keys in tmp.keys in column 2 of the file tmp.het
 
@@ -147,38 +153,22 @@ This bash script will call another script and together will conduct filtering an
 
 		sh /ASEofBases/1_code/2_run.sh # this program runs 3_makeData.sh
 
-
-
-
- - ANGSD 
-		Use ANGSD to get counts, mapq filter 40, remove duplicates from BAM files 
-
-- Output:
-	Output of data parsing and filtering
-	The output of this step will result in a file for each individual with these columns:
-		chr: chromosome 
-		pos: position
-		ref: reference allele
-		alt: alternative allele
-		g: gene
-		a1: observed phased allele 1
-		a2: observed phased allele 2
-		type: snp type (1 if allele 1 is the alternative allele and 2 if allele 2 is the alternative allele)
-		n: total counts of reads overlapping
-		nA: counts of As
-		nC: counts of Cs
-		nG: counts of Gs
-		nT: counts of Ts
+- Output: will result in a file for each individual with these columns:
+	1. chr: chromosome 
+	2. pos: position
+	3. ref: reference allele
+	4. alt: alternative allele
+	5. g: gene
+	6. a1: observed phased allele 1
+	7. a2: observed phased allele 2
+	8. type: snp type (1 if allele 1 is the alternative allele and 2 if allele 2 is the alternative allele)
+	9. n: total counts of reads overlapping
+	10. nA: counts of As
+	11. nC: counts of Cs
+	12. nG: counts of Gs
+	13. nT: counts of Ts
 
 ## 6. Run regression analysis and make plots in R
 For regression analysis using data generated in pervious steps
 
 		ASEofBases.R
-
-For simulations
-
-		simAoB.R
-
-![simulations collage](https://raw.github.com/WilsonSayresLab/ASEofBases/master/doc/simulations.png)	
-
-
