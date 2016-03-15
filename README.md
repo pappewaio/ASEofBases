@@ -80,11 +80,11 @@ VCFmergeGTF - This code is merging the genotype calls (from vcf) with position o
 
 ### Step 2. Program check
 Make sure each of these programs are installed and added to the /ASEofBases/2_prog/ directory 
+- bigwig (https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 - angsd (https://github.com/ANGSD/angsd)
 - vcftools_0.1.12b (http://sourceforge.net/projects/vcftools/files/)
 - zlib-1.2.8 (http://www.zlib.net)
 - samtools/htslib (https://github.com/samtools/htslib)
-- bigwig (https://genome.ucsc.edu/goldenPath/help/bigWig.html)
 
 
 		# angsd
@@ -121,25 +121,24 @@ Download the Mapability file:
 - http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
 - wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
 
-		cd ASEofBases/2_prog/BigWig/
 		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
 ### 4. Get raw data and conduct initial parsing
 1_getRaw.sh is a bash script for downloading initial data and does some processing. 
-- '1_getRaw.sh' Overview:
+- 1_getRaw.sh Overview:
 	1. Convert Mapability file to bed format and create file to filter on mapability
 	2. Get protein coding gene annotations
 	3. Download & parse individual genotype information from `1000Genomes` individuals
-	4. Download & parse individual information RNAseq data from `Geuvadis` 
+	4. Download & parse individual information RNAseq data from `Geuvadis`
 
 		sh /ASEofBases/bash_scripts/1_getRaw.sh
 
 - Outputs:
-	1. **chr#.50mer.target**
-	2. **gencode.chr#.gore**
-	3. **gencode.protien_coding.genes.v19.gtf**
-	4. **chr#.genotypes.vcf**
-	5. **individual_ID_list**
+	1. **chr#.50mer.target** - target file to individual chromosome files. Example: chr1:10207-10212
+	2. **gencode.chr#.gore** - protein coding gene entries. Example: chr1	69091	70008	gene_id "ENSG00000186092.4"; 
+	3. **gencode.protien_coding.genes.v19.gtf** - gencode gene annotation file, containing only protein coding regions 
+	4. **chr#.genotypes.vcf** - 1000Genomes genotype file
+	5. **individual_ID_list** -  Geuvadis RNAseq individual id list
 
 ## 5. Parse and merge genotype and transcriptome data
 This bash script will call another script and together will conduct filtering and parsing of the genotype and RNAseq data.
