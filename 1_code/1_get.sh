@@ -58,7 +58,7 @@ cd $rawdir
 wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_19/gencode.v19.annotation.gtf.gz 
 
 #Keep only protein coding gene entries:
-zcat $rawdir/gencode.v19.annotation.gtf.gz | awk '{if($3=="gene" && $20=="\"protein_coding\";"){print $0}}' > $rawdir/gencode.protein_coding.genes.v19.gtf
+gzcat $rawdir/gencode.v19.annotation.gtf.gz | awk '{if($3=="gene" && $20=="\"protein_coding\";"){print $0}}' > $rawdir/gencode.protein_coding.genes.v19.gtf
 
 ### TAKING CHR FROM GTF FILE
 for chr in {1..22}
