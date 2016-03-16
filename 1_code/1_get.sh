@@ -110,3 +110,4 @@ do
 cut -f1,29,31,33 $rawdir/geuvadis.E-GEUV-1.sdrf.txt | grep _1.fastq.gz | grep $pop | cut -f1 > $rawdir/geuvadis.$pop.ind
 grep -f $rawdir/geuvadis.$pop.ind $rawdir/kg.inds > $rawdir/geuvadis.$pop.kG.ind
 done
+
