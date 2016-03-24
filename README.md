@@ -16,6 +16,7 @@ If you use the `1000Genomes` or `Geuvidas` data sets, please also cite:
 #### Key features
 - method model of allele-specific expression in single individuals  
 - method model of allele-specific expression using "population data"
+
 Additionally code includes simulations:
 - simulations for modeling statistcal power for various read depth and various number of SNPs per gene 
 - simulations for modeling SNP-wise binomial, binomial-based logistic regression, and binomial-based logistic regression correcting for the over dispersion of read counts. 
