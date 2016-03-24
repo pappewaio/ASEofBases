@@ -14,10 +14,12 @@ If you use the `1000Genomes` or `Geuvidas` data sets, please also cite:
 - Lappalainen et al. Nature 2013 : Transcriptome and genome sequencing uncovers functional variation in humans (http://dx.doi.org/10.1038/nature12531).
 
 #### Key features
+- method model of allele-specific expression in single individuals  
+- method model of allele-specific expression using "population data"
+Additionally code includes simulations:
 - simulations for modeling statistcal power for various read depth and various number of SNPs per gene 
 - simulations for modeling SNP-wise binomial, binomial-based logistic regression, and binomial-based logistic regression correcting for the over dispersion of read counts. 
-- model of allele-specific expression in single individuals  
-- model of allele-specific expression in a population 
+
 
 #### Installation
 Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/ASEofBases/archive/master.zip), unzip and add the `bin` directory to your `PATH`. E.g.:
@@ -113,7 +115,7 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/macOSX.x86_64/ ./
 
 
-### 3. Download Mapability file for uniqueness of the reference genome from Encode 
+### 3. Download Mapability file for filtering for uniqueness of the reference genome from ENCODE 
 **** includes some point and clicking *****
 The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. Mapability files were generated using different window sizes, high signal will be found in areas where the sequence is unique.
 
@@ -161,7 +163,7 @@ This bash script will call another script and together will conduct filtering an
 	12. nG: counts of Gs
 	13. nT: counts of Ts
 
-## 6. Run regression analysis and make plots in R
+## 6. Infer allele specific expression using ASEofBases on the filtered data that was generated in the pervious steps
 For regression analysis using data generated in pervious steps
 
 		ASEofBases.R
