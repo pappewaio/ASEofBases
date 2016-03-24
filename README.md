@@ -75,7 +75,7 @@ VCFmergeGTF - This code is merging the genotype calls (from vcf) with position o
 
 		cd /ASEofBases/2_prog/
 		g++ -O3 -o VCFmergeGTF3 VCFmergeGTF3.cpp -lz
-		g++ -O3 -o ieatgor ieatgorV2.cpp -lZ
+		g++ -O3 -o ieatgor ieatgorV2.cpp -lz
 		g++ -O3 -o getliners getliners.cpp -lz
 
 ### Step 2. Program check
