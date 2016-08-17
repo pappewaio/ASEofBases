@@ -76,9 +76,9 @@ ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry i
 
 VCFmergeGTF - This code is merging the genotype calls (from vcf) with position of protein coding genes (from gencode)
 
-		cd /ASEofBases/2_prog/
+		cd 2_prog/
 		g++ -O3 -o VCFmergeGTF3 VCFmergeGTF3.cpp -lz
-		g++ -O3 -o ieatgor ieatgorV2.cpp -lZ
+		g++ -O3 -o ieatgor ieatgorV2.cpp -lz
 		g++ -O3 -o getliners getliners.cpp -lz
 
 ### Step 2. Program check
@@ -91,13 +91,19 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 
 
 		# angsd
-		git clone https://github.com/angsd/angsd.git
-		cd angsd
-		make
+		Using a local folder containing htslib
+		git clone https://github.com/samtools/htslib.git;
+		git clone https://github.com/angsd/angsd.git;
+		cd htslib;make;cd ../angsd;make HTSSRC=../htslib
+		
+		Systemwide installation of htslib
+		git clone https://github.com/angsd/angsd.git;
+		cd angsd;make
+		
 		
 		# vcftoolss_0.1.12b
 		wget https://sourceforge.net/projects/vcftools/files/vcftools_0.1.12b.tar.gz
-		tar -xzvf file.tar.gz
+		tar -xzvf vcftools_0.1.12b.tar.gz
 		rm vcftools_0.1.12b.tar.gz
 		
 		# zlib
@@ -107,23 +113,21 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 		
 		# samtools 
 		wget https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2 
-		tar -xzvf samtools-1.3.tar.bz2
+		tar -vxjf samtools-1.3.tar.bz2
 		rm samtools-1.3.tar.bz2
 		
 		#BigWig
 		mkdir BigWig
 		cd BigWig
-		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/macOSX.x86_64/ ./
+		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/linux.x86_64.v287/ ./
 
 
 ### 3. Download Mapability file for filtering for uniqueness of the reference genome from ENCODE 
-**** includes some point and clicking *****
 The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. Mapability files were generated using different window sizes, high signal will be found in areas where the sequence is unique.
 
 Download the Mapability file:
-- http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
-- wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
-
+	
+		wget http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeMapability/wgEncodeCrgMapabilityAlign50mer.bigWig
 		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
 ### 4. Get raw data and conduct initial parsing
