@@ -168,8 +168,8 @@ This bash script will call another script and together will conduct filtering an
 	12. nG: counts of Gs
 	13. nT: counts of Ts
 
-## 6. Infer allele specific expression using ASEofBases on the filtered data that was generated in the pervious steps
-For regression analysis using data generated in pervious steps
+## 6. Infer allele specific expression using ASEofBases on the filtered data that was generated in the previous steps
+For regression analysis using data generated in previous steps
 
 		ASEofBases.R
 
