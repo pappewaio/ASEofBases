@@ -11,15 +11,15 @@
 #############
 
 # Define directories
-progdir=/Users/olneykimberly/Desktop/ASEofBases/2_prog
-rawdir=/Users/olneykimberly/Desktop//ASEofBases/3_raw
+progdir=~/ASEofBases-master/2_prog
+rawdir=~/ASEofBases-master/3_raw
 
 #############
 ## 1. Convert Mapability file to bed format and create file to filter on mapability
 #############
 # This data is to develop a set of filters so that we can exclude regions of the 
 # genome that are difficult to map to.
-#
+# 
 # check to get the correct version of bigWig for your system
 #
 # Note: the mapability file needs to already have been downloaded an put in the BigWig directory
@@ -30,7 +30,7 @@ cd $progdir/BigWig/
 $progdir/BigWig/bigWigToBedGraph wgEncodeCrgMapabilityAlign50mer.bigWig wgEncodeCrgMapabilityAlign50mer.bed
 
 # parse bed file to target file:
-# Depending on the the system used you may need to change sed 's/\t/:/' to sed 's/	/:/'
+# Depending on the the system used (linux, mac, PC) you may need to change sed 's/\t/:/' to sed 's/	/:/'
 #egrep "\s1$" wgEncodeCrgMapabilityAlign50mer.bed | sed 's/\t/:/' | sed 's/\t/-/' | cut -f1 > wgEncodeCrgMapabilityAlign50mer.target
 egrep "\s1$" wgEncodeCrgMapabilityAlign50mer.bed | sed 's/	/:/' | sed 's/	/-/' | cut -f1 > wgEncodeCrgMapabilityAlign50mer.target
 mv wgEncodeCrgMapabilityAlign50mer.target $rawdir

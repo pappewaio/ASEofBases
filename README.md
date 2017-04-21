@@ -14,10 +14,13 @@ If you use the `1000Genomes` or `Geuvidas` data sets, please also cite:
 - Lappalainen et al. Nature 2013 : Transcriptome and genome sequencing uncovers functional variation in humans (http://dx.doi.org/10.1038/nature12531).
 
 #### Key features
+- method model of allele-specific expression in single individuals  
+- method model of allele-specific expression using "population data"
+
+Additionally code includes simulations:
 - simulations for modeling statistcal power for various read depth and various number of SNPs per gene 
 - simulations for modeling SNP-wise binomial, binomial-based logistic regression, and binomial-based logistic regression correcting for the over dispersion of read counts. 
-- model of allele-specific expression in single individuals  
-- model of allele-specific expression in a population 
+
 
 #### Installation
 Download [the latest release of ASEofBases](https://github.com/WilsonSayresLab/ASEofBases/archive/master.zip), unzip and add the `bin` directory to your `PATH`. E.g.:
@@ -73,7 +76,7 @@ ieatgor - Filter for alignability output chr$chr.ind$ind.data, greps any entry i
 
 VCFmergeGTF - This code is merging the genotype calls (from vcf) with position of protein coding genes (from gencode)
 
-		cd /ASEofBases/2_prog/
+		cd 2_prog/
 		g++ -O3 -o VCFmergeGTF3 VCFmergeGTF3.cpp -lz
 		g++ -O3 -o ieatgor ieatgorV2.cpp -lz
 		g++ -O3 -o getliners getliners.cpp -lz
@@ -88,13 +91,19 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 
 
 		# angsd
-		git clone https://github.com/angsd/angsd.git
-		cd angsd
-		make
+		Using a local folder containing htslib
+		git clone https://github.com/samtools/htslib.git;
+		git clone https://github.com/angsd/angsd.git;
+		cd htslib;make;cd ../angsd;make HTSSRC=../htslib
+		
+		Systemwide installation of htslib
+		git clone https://github.com/angsd/angsd.git;
+		cd angsd;make
+		
 		
 		# vcftoolss_0.1.12b
 		wget https://sourceforge.net/projects/vcftools/files/vcftools_0.1.12b.tar.gz
-		tar -xzvf file.tar.gz
+		tar -xzvf vcftools_0.1.12b.tar.gz
 		rm vcftools_0.1.12b.tar.gz
 		
 		# zlib
@@ -104,23 +113,21 @@ Make sure each of these programs are installed and added to the /ASEofBases/2_pr
 		
 		# samtools 
 		wget https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2 
-		tar -xzvf samtools-1.3.tar.bz2
+		tar -vxjf samtools-1.3.tar.bz2
 		rm samtools-1.3.tar.bz2
 		
 		#BigWig
 		mkdir BigWig
 		cd BigWig
-		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/macOSX.x86_64/ ./
+		rsync -aP rsync://hgdownload.cse.ucsc.edu/genome/admin/exe/linux.x86_64.v287/ ./
 
 
-### 3. Download Mapability file for uniqueness of the reference genome from Encode 
-**** includes some point and clicking *****
+### 3. Download Mapability file for filtering for uniqueness of the reference genome from ENCODE 
 The mapability file is used for identifing uniqueness of the reference GRCh37/hg19 genome assembly. Mapability files were generated using different window sizes, high signal will be found in areas where the sequence is unique.
 
 Download the Mapability file:
-- http://moma.ki.au.dk/genome-mirror/cgi-bin/hgFileUi?db=hg19&g=wgEncodeMapability
-- wgEncodeEH000320 for wgEncodeCrgMapabilityAlign50mer.bigWig
-
+	
+		wget http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeMapability/wgEncodeCrgMapabilityAlign50mer.bigWig
 		mv wgEncodeCrgMapabilityAlign50mer.bigWig /ASEofBases/2_prog/BigWig/
 
 ### 4. Get raw data and conduct initial parsing
@@ -161,8 +168,8 @@ This bash script will call another script and together will conduct filtering an
 	12. nG: counts of Gs
 	13. nT: counts of Ts
 
-## 6. Run regression analysis and make plots in R
-For regression analysis using data generated in pervious steps
+## 6. Infer allele specific expression using ASEofBases on the filtered data that was generated in the previous steps
+For regression analysis using data generated in previous steps
 
 		ASEofBases.R
 
